@@ -1,12 +1,12 @@
 <h1>Payment Results</h1>
 
-<div>
+
   <dl>
     <dt>APR</dt>
-    <dd><%= @apr.to_s(:percentage) %></dd>
+    <dd><%= @apr.round(4).to_s(:percentage) %></dd>
 
     <dt>Number of years</dt>
-    <dd><%= @years %></dd>
+    <dd><%= @years.to_i %></dd>
 
     <dt>Principal</dt>
     <dd><%= @principal.to_s(:currency)  %></dd>
@@ -15,6 +15,6 @@
     <dd><%= @payment.to_s(:currency)  %></dd>
 
   </dl>
-</div>
+
 
 <a href="/payment/new">Calculate another payment</a>

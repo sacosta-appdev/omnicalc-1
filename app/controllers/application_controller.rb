@@ -57,13 +57,13 @@ class ApplicationController < ActionController::Base
 
   def payment_results
 
-    @apr = params.fetch("user_apr").to_f 
+    @apr = params.fetch("user_apr").to_f.round(4)
     @years = params.fetch("user_years").to_f
     @principal = params.fetch("user_pv").to_f
 
     n = @years * 12
     actual_apr = @apr / 100
-    r = actual_apr / n
+    r = actual_apr / 12
 
     numerator = r * @principal
     denominator = 1 - ((1+r) ** (-n))
