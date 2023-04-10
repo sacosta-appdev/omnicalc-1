@@ -33,4 +33,34 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def blank_sqrt_form
+
+    render({ :template => "calc_templates/sqrt_form.html.erb"})
+
+  end
+
+  def sqrt_results
+
+    @num_to_sqrt = params.fetch("user_number").to_f
+    @sqrt_num = @num_to_sqrt ** 0.5
+
+    render({ :template => "calc_templates/sqrt_results.html.erb"})
+
+  end
+
+
+  def blank_payment_form
+
+    render({ :template => "calc_templates/payment_form.html.erb"})
+
+  end
+
+  def payment_results
+
+    render({ :template => "calc_templates/payment_results.html.erb"})
+
+  end
+
+  
+
 end
