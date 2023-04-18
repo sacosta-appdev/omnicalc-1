@@ -57,7 +57,8 @@ class ApplicationController < ActionController::Base
 
   def payment_results
 
-    @apr = params.fetch("user_apr").to_f.round(4)
+    @apr = params.fetch("user_apr").to_f
+    @apr_displayed = @apr.to_s(:percentage, { :precision => 4 })
     @years = params.fetch("user_years").to_f
     @principal = params.fetch("user_pv").to_f
 
